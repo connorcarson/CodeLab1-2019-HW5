@@ -14,6 +14,18 @@ public class AsciiLevelLoader : MonoBehaviour
         {
             File.WriteAllText(filepath, "X");
         }
+        
+        string[] inputLines = File.ReadAllLines(filepath);
+
+        for (int y = 0; y < inputLines.Length; y++) //loop through each line
+        {
+            string line = inputLines[y]; //var for the line we're currently looping through
+
+            for(int x = 0; x < line.Length; x++) //loop through each character in each the line
+            {
+                //insert switch statements here
+            } 
+        }
     }
 
     // Update is called once per frame
