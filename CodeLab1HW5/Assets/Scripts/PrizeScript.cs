@@ -7,10 +7,11 @@ public class PrizeScript : MonoBehaviour
 {
 
 	private bool playerIsTouchingPrize;
+	//public GameObject walls;
 
 	// Use this for initialization
 	void Start () {
-
+		//walls = GameObject.FindWithTag("isWall");
 	}
 	
 	// Update is called once per frame
@@ -27,14 +28,18 @@ private void OnTriggerEnter(Collider other)
 			Destroy(gameObject); //then destroy this prize
 			GameManager.instance.Score += 5;
 		}
-		
 		else if (other.CompareTag("Player")) //if just one player is touching this prize
 		{
 			//Debug.Log("A single player is colliding with me!");
 			playerIsTouchingPrize = true; //then a player is currently touching this prize
 		}
+		else if (other.CompareTag("isWall")) //if a wall enters trigger
+		{
+			transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-4, 4), 0.78f);
+			//move this gameobject to a new pos
+		}
 	}
-	
+
 private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("Player")) //if a player stops touching this prize
