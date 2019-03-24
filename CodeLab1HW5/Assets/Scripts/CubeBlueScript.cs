@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CubeBlueScript : MonoBehaviour
 {
     public GameObject player;
+    public GameObject walls;
 
     private float timeLeft = 5f;
     
@@ -25,6 +26,7 @@ public class CubeBlueScript : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("PlayerBlue");
+        walls = GameObject.FindWithTag("isWall");
         //ConvertUIPos();
     }
 
@@ -35,7 +37,7 @@ public class CubeBlueScript : MonoBehaviour
         CubeFail();
     }
 
-    private void OnTriggerEnter(Collider other) //if hit by another collider
+    private void OnCollisionEnter(Collision other) //if hit by another collider
     { 
         //Debug.Log("hit");
         if (other.gameObject == player) //and that collider belongs to the correct player
@@ -44,6 +46,11 @@ public class CubeBlueScript : MonoBehaviour
             GameManager.instance.Health += 5;
             GameManager.instance.Score++;
             //Destroy(cubeTimer); //destroy this timer
+        }
+        else if (other.gameObject == walls) //if the other collider belongs to a wall
+        {
+            gameObject.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-4, 4), 0.78f);
+            //move this gameobject to a new position
         }
     }
 

@@ -169,13 +169,13 @@ public class GameManager : MonoBehaviour
 	void CubeBlueSpawn() //function for spawning our blue cube prizes
 	{
 		GameObject newCube1 = Instantiate(Resources.Load<GameObject>("Prefabs/CubeBlue"));
-		newCube1.transform.position = new Vector2(Random.Range(-10, 10), Random.Range(-4, 4));
+		newCube1.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-4, 4), 0.78f);
 	}
 
 	void CubeRedSpawn() //function for spawning our red cube prizes
 	{
 		GameObject newCube2 = Instantiate(Resources.Load<GameObject>("Prefabs/CubeRed"));
-		newCube2.transform.position = new Vector2(Random.Range(-10, 10), Random.Range(-4, 4));
+		newCube2.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-4, 4), 0.78f);
 	}
 
 	void CheckForPrize() //check if heart prize has been destroyed

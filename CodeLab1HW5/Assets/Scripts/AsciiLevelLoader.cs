@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class AsciiLevel0Loader : MonoBehaviour
+public class AsciiLevelLoader : MonoBehaviour
 {
 
     public string levelTxt;
