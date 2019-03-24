@@ -23,7 +23,24 @@ public class AsciiLevelLoader : MonoBehaviour
 
             for(int x = 0; x < line.Length; x++) //loop through each character in each the line
             {
-                //insert switch statements here
+                GameObject tile;
+                
+                switch (line[x])
+                {
+                    case 'X': //if the character in a given line is equal to X
+                        tile = Instantiate(Resources.Load<GameObject>("Prefabs/Wall")); //make a wall
+                        break;
+                    default: //if the character in a given line does not match any above cases
+                        tile = null; //don't make anything
+                        break;
+                }
+
+                if (tile != null) //if a tile exists
+                {
+                    tile.transform.position = new Vector3(x - line.Length/2f, y - inputLines.Length/2f, 0.78f);
+                    //move that tile to a position relative to it's location in the .txt file
+                    //convert origin in scene from center of screen
+                }
             } 
         }
     }
