@@ -189,19 +189,19 @@ public class GameManager : MonoBehaviour
 	
 	void LevelLoader()
 	{
-		anim.SetTrigger("Level1Over");
+		anim.SetBool("LevelStart", true);
 		restartTimer += Time.deltaTime; //count up in seconds
 		if (restartTimer >= restartDelay) //if restart timer is equal to our restart delay
 		{
 			timeLeft = timeMax;
 			SceneManager.LoadScene(sceneIndex); //load next level
+			anim.SetBool("LevelStart", true);
 		}
 	}
     
 	public void GameOver()
 	{
-		anim.SetTrigger("GameOver"); //start Game Over animation
-        
+        anim.SetBool("LevelStart", false);
 		restartTimer += Time.deltaTime; //count up in seconds
 		if (restartTimer >= restartDelay) //if restart timer is equal to our restart delay
 		{
@@ -209,6 +209,7 @@ public class GameManager : MonoBehaviour
 			Score = 0;
 			timeLeft = timeMax;
 			SceneManager.LoadScene(0); //load first level
+			anim.SetBool("LevelStart", true);
 		}
 	}
 
