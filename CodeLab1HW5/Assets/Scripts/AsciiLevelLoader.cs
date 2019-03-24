@@ -37,7 +37,7 @@ public class AsciiLevelLoader : MonoBehaviour
 
                 if (tile != null) //if a tile exists
                 {
-                    tile.transform.position = new Vector3(x - line.Length/2f, y - inputLines.Length/2f, 0.78f);
+                    tile.transform.position = new Vector3(x - line.Length/2f, inputLines.Length/2f - y, 0.78f);
                     //move that tile to a position relative to it's location in the .txt file
                     //convert origin in scene from center of screen
                 }
