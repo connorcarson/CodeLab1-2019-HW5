@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class AsciiLevelLoader : MonoBehaviour
+public class AsciiLevel0Loader : MonoBehaviour
 {
+
+    public string levelTxt;
+    
     // Start is called before the first frame update
     void Start()
     {
-        string filepath = Application.dataPath + "/level0.txt"; //path to file
+        string filepath = Application.dataPath + levelTxt; //path to file
 
         if (!File.Exists(filepath))
         {
